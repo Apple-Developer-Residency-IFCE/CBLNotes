@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(macOS 13.0, *)
 struct TitleHelperView: View {
     var title: String?
     var size: CGFloat = 17

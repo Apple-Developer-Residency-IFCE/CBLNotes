@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(macOS 13.0, *)
 class List: CommandScheme {
     static let prefix: String = "-"
 
@@ -12,7 +11,6 @@ class List: CommandScheme {
     }
 }
 
-@available(macOS 13.0, *)
 extension List {
     static func == (lhs: List, rhs: List) -> Bool {
         lhs.hashValue.description == rhs.hashValue.description

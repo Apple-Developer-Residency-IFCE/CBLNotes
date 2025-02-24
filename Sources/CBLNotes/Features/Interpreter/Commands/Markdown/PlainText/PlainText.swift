@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(macOS 13.0, *)
 class PlainText: CommandScheme {
     static let prefix: String = ""
 
@@ -9,7 +8,6 @@ class PlainText: CommandScheme {
     }
 }
 
-@available(macOS 13.0, *)
 extension PlainText {
     static func == (lhs: PlainText, rhs: PlainText) -> Bool {
         lhs.hashValue == rhs.hashValue

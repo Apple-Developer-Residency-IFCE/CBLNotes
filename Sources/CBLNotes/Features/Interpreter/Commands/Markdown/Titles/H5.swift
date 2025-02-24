@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(macOS 13.0, *)
 class H5: CommandScheme {
     static let prefix: String = "#####"
 
@@ -9,7 +8,6 @@ class H5: CommandScheme {
     }
 }
 
-@available(macOS 13.0, *)
 extension H5 {
     static func == (lhs: H5, rhs: H5) -> Bool {
         lhs.hashValue.description == rhs.hashValue.description
