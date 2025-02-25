@@ -1,9 +1,9 @@
 import XCTest
 @testable import CBLNotes
 
-final class MarkDownExpressionTests: XCTestCase {
+final class MarkdownExpressionTests: XCTestCase {
     func testInterpretWhenSplitedInputCountIsLessThanOneShouldReturnADefaultValue() {
-        let sut = MarkDownExpression(input: "")
+        let sut = MarkdownExpression(input: "")
         let capturedValue = sut.interpret()
         let expectedValue = ("", "")
         XCTAssertEqual(capturedValue.0, expectedValue.0)
@@ -11,7 +11,7 @@ final class MarkDownExpressionTests: XCTestCase {
     }
 
     func testInterpretWhenSplitedInputCountIsEqualOneShouldReturnADefaultValue() {
-        let sut = MarkDownExpression(input: "a")
+        let sut = MarkdownExpression(input: "a")
         let capturedValue = sut.interpret()
         let expectedValue = ("", "a")
         XCTAssertEqual(capturedValue.0, expectedValue.0)
@@ -19,7 +19,7 @@ final class MarkDownExpressionTests: XCTestCase {
     }
     
     func testInterpretWhenSplitedInputCountIsBiggerThanOneShouldReturnADefaultValue() {
-        let sut = MarkDownExpression(input: "# teste")
+        let sut = MarkdownExpression(input: "# teste")
         let capturedValue = sut.interpret()
         let expectedValue = ("#", "teste")
         XCTAssertEqual(capturedValue.0, expectedValue.0)

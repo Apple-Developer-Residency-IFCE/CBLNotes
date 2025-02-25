@@ -1,6 +1,6 @@
 import Foundation
 
-class MarkDownExpression: MarkdownExpressionType {
+class MarkdownExpression: MarkdownExpressionType {
     private let input: String
 
     init(input: String) {
