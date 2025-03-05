@@ -14,8 +14,6 @@ import SwiftUI
 ///     }
 /// }
 /// ```
-///
-/// - Note: A versão mínima necessária para utilizar o método `render` é macOS 10.15.
 public protocol CommandScheme: AnyObject, Hashable, Equatable {
     associatedtype Output: View
 
