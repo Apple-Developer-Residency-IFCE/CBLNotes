@@ -17,7 +17,7 @@ public protocol NoteInterpreterType {
     func unregister(_ prefix: String)
 
     /// Método que remove uma lista de comandos existes. Caso não exista, método não faz nada.
-    /// - Parameter prefixes: String
+    /// - Parameter prefixes: [String]
     func unregister(prefixes: [String])
 
     /// Método que interpreta um texto de entrada e retorna a view associada ao texto de entrada.
