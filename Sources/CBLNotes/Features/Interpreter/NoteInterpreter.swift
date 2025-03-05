@@ -9,14 +9,16 @@ public class NoteInterpreter {
     }
 
     private func setupDefaultCommands() {
-        register(command: H1.self)
-        register(command: H2.self)
-        register(command: H3.self)
-        register(command: H4.self)
-        register(command: H5.self)
-        register(command: H6.self)
-        register(command: List.self)
-        register(command: PlainText.self)
+        register(commands: [
+            H1.self,
+            H2.self,
+            H3.self,
+            H4.self,
+            H5.self,
+            H6.self,
+            List.self,
+            PlainText.self
+        ])
     }
 
     private func interpretLine(_ input: String) -> AnyView {
@@ -36,8 +38,16 @@ extension NoteInterpreter: NoteInterpreterType {
         self.subscribedCommands[command.prefix] = command
     }
 
+    public func register(commands: [any CommandScheme.Type]) {
+        commands.forEach { register(command: $0) }
+    }
+
     public func unregister(_ prefix: String) {
         self.subscribedCommands[prefix] = nil
+    }
+
+    public func unregister(prefixes: [String]) {
+        prefixes.forEach { unregister($0) }
     }
 
     public func interpret(_ input: String) -> some View {
