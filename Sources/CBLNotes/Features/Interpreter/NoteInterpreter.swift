@@ -4,7 +4,7 @@ import SwiftUI
 public class NoteInterpreter {
     @ObservationIgnored private var subscribedCommands:  [String: any CommandScheme.Type] = [:]
 
-    init() {
+    public init() {
         setupDefaultCommands()
     }
 
