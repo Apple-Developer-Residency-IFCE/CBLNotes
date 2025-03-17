@@ -34,8 +34,8 @@ public struct CBLNoteView: View {
     /// Inicializador para rendeirização.
     /// - Parameter text: String a ser renderizada.
     /// - Parameter interpreter: any NoteInterpreterType responsável pela interpretação do `text`.
-    init(text: String,
-         interpreter: any NoteInterpreterType = NoteInterpreter()) {
+    public init(text: String,
+                interpreter: any NoteInterpreterType = NoteInterpreter()) {
         viewModel = CBLNoteViewModel(text: .constant(text),
                                      shouldRender: .constant(true),
                                      interpreter: interpreter)
