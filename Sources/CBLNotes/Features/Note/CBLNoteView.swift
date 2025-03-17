@@ -19,7 +19,7 @@ import SwiftUI
 public struct CBLNoteView: View {
     private let viewModel: CBLNoteViewModel
 
-    /// inicializador
+    /// Inicializador para rendeirização e edição.
     /// - Parameter text: Binding<String> para o texto associado.
     /// - Parameter shouldRender: Binding<Bool> controla o que vai ser renderizados. Caso seja `false`, irá apresentar um `TextEditor`, caso `true`, irá apresentar o resultado de `NoteInterpreterType.interpret(_ input: String)`.
     /// - Parameter interpreter: any NoteInterpreterType responsável pela interpretação do `text`.
@@ -28,6 +28,16 @@ public struct CBLNoteView: View {
                 interpreter: any NoteInterpreterType = NoteInterpreter()) {
         viewModel = CBLNoteViewModel(text: text,
                                      shouldRender: shouldRender,
+                                     interpreter: interpreter)
+    }
+
+    /// Inicializador para rendeirização.
+    /// - Parameter text: String a ser renderizada.
+    /// - Parameter interpreter: any NoteInterpreterType responsável pela interpretação do `text`.
+    init(text: String,
+         interpreter: any NoteInterpreterType = NoteInterpreter()) {
+        viewModel = CBLNoteViewModel(text: .constant(text),
+                                     shouldRender: .constant(true),
                                      interpreter: interpreter)
     }
 
