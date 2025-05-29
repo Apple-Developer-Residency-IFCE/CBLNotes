@@ -22,7 +22,7 @@ private extension PlainTextHelperView {
         for part in parts {
             switch part.style {
             case .normal:
-                finalText = finalText + Text(part.content)
+                finalText = finalText + Text(part.content).font(.body)
             case .bold:
                 finalText = finalText + Text(part.content).bold()
             case .italic:

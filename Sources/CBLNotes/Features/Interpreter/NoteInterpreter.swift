@@ -57,7 +57,6 @@ extension NoteInterpreter: NoteInterpreterType {
             ForEach(lines, id: \.0) { _, line in
                 self.interpretLine(line)
             }
-            .padding(20)
         }
     }
 }

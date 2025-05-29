@@ -14,6 +14,7 @@ struct TitleHelperView: View {
                           design: .default))
             .italic(italic)
             .underline(underline)
+            .fontWeight(.medium)
             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
     }
 }
