@@ -18,6 +18,7 @@ import SwiftUI
 /// ```
 public struct CBLNoteView: View {
     private let viewModel: CBLNoteViewModel
+    @FocusState private var isFocused: Bool
 
     /// Inicializador para rendeirização e edição.
     /// - Parameter text: Binding<String> para o texto associado.
@@ -43,10 +44,16 @@ public struct CBLNoteView: View {
 
     public var body: some View {
         ZStack {
-            if viewModel.shouldRender {
-                viewModel.interpret()
-            } else {
+            ZStack {
+                if viewModel.shouldRender {
+                    viewModel.interpret()
+                        .onTapGesture {
+                            isFocused = true
+                        }
+                }
                 TextEditor(text: viewModel.$text)
+                    .opacity(viewModel.shouldRender ? 0 : 1)
+                    .focused($isFocused)
             }
         }
         .animation(.easeOut, value: viewModel.shouldRender)
