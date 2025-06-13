@@ -4,7 +4,13 @@ class H2: CommandScheme {
     static let prefix: String = "##"
 
     static func render(_ line: String = "") -> some View {
-        return TitleHelperView(title: line, size: 32)
+        return VStack(spacing: 2) {
+            TitleHelperView(title: line, size: 32)
+            Divider()
+                .background(Color.gray.opacity(0.6))
+        }
+        .padding(.top, 5)
+        .padding(.bottom, 2)
     }
 }
 

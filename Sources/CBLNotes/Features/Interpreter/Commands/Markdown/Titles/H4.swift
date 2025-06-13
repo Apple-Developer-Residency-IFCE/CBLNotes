@@ -4,7 +4,7 @@ class H4: CommandScheme {
     static let prefix: String = "####"
 
     static func render(_ line: String = "") -> some View {
-        return TitleHelperView(title: line, size: 22)
+        return TitleHelperView(title: line, size: 22).padding(.top, 5).padding(.bottom, 2)
     }
 }
 
