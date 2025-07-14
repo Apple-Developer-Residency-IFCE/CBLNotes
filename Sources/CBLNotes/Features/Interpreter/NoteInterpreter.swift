@@ -50,12 +50,19 @@ extension NoteInterpreter: NoteInterpreterType {
         prefixes.forEach { unregister($0) }
     }
 
-    public func interpret(_ input: String) -> some View {
+    @ViewBuilder public func interpret(_ input: String) -> some View {
         let lines = input.components(separatedBy: "\n").enumerated().map { ($0, String($1)) }
 
-        return ScrollView {
-            ForEach(lines, id: \.0) { _, line in
+        if lines.count == 1 {
+            if let line = lines.first?.1 as? String {
                 self.interpretLine(line)
+            }
+        } else {
+            ScrollView {
+                ForEach(lines, id: \.0) { _, line in
+                    self.interpretLine(line)
+                }
+                .padding(20)
             }
         }
     }

@@ -43,19 +43,19 @@ public struct CBLNoteView: View {
     }
 
     public var body: some View {
-        ZStack {
-            ZStack {
-                if viewModel.shouldRender {
-                    viewModel.interpret()
-                        .onTapGesture {
-                            isFocused = true
-                        }
-                }
-                TextEditor(text: viewModel.$text)
-                    .opacity(viewModel.shouldRender ? 0 : 1)
-                    .focused($isFocused)
-            }
+        textBody.overlay {
+            TextEditor(text: viewModel.$text)
+                .opacity(viewModel.shouldRender ? 0 : 1)
+                .focused($isFocused)
         }
-        .animation(.easeOut, value: viewModel.shouldRender)
+    }
+    
+    @ViewBuilder var textBody: some View {
+        if viewModel.shouldRender {
+            viewModel.interpret()
+                .onTapGesture {
+                    isFocused = true
+                }
+        }
     }
 }
